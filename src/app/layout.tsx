@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
   title: "BaseRadar — Crypto Ecosystem Intelligence",
-  description: "Daily momentum signals for crypto ecosystems and tokens. Track which chains and projects are gaining velocity. Free, updated daily.",
+  description: "Track which crypto ecosystems and tokens are gaining momentum — before the market prices it in. Free daily intelligence from DexScreener, Zora, and PumpFun.",
   openGraph: {
     title: "BaseRadar — Crypto Ecosystem Intelligence",
     description: "Track which chains and tokens are gaining momentum before the market prices it in.",
@@ -29,41 +32,41 @@ const NAV_LINKS = [
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-[#0a0a0f] text-zinc-100 min-h-screen flex flex-col">
+      <body className={`${inter.className} min-h-screen bg-[#0a0a0a] text-zinc-100 antialiased`}>
         {/* Nav */}
-        <header className="sticky top-0 z-50 bg-[#0a0a0f]/90 backdrop-blur border-b border-white/5">
-          <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-            <Link href="/" className="text-white font-bold text-lg tracking-tight">
-              BaseRadar
+        <header className="sticky top-0 z-50 border-b border-zinc-800/80 bg-[#0a0a0a]/90 backdrop-blur">
+          <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+            <Link href="/" className="text-lg font-semibold tracking-tight">
+              BaseRadar<span className="text-cyan-400">.</span>
             </Link>
-            <nav className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-6 text-sm text-zinc-400">
               {NAV_LINKS.map((l) => (
-                <Link key={l.href} href={l.href} className="text-zinc-400 hover:text-white text-sm transition-colors">
+                <Link key={l.href} href={l.href} className="transition hover:text-white">
                   {l.label}
                 </Link>
               ))}
-            </nav>
+            </div>
             <a
               href="https://botindex.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-cyan-500 hover:bg-cyan-400 text-black text-sm font-semibold px-3 py-1.5 rounded transition-colors"
+              className="rounded-md border border-cyan-400/40 bg-cyan-400/10 px-3 py-1.5 text-sm text-cyan-300 transition hover:bg-cyan-400/20"
             >
               BotIndex Pro →
             </a>
-          </div>
+          </nav>
         </header>
 
-        {/* Main */}
-        <main className="flex-1">{children}</main>
+        <main className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          {children}
+        </main>
 
-        {/* Footer */}
-        <footer className="border-t border-white/5 py-8 mt-16">
-          <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-zinc-500 text-sm">
-            <p>© 2026 BaseRadar · Powered by <a href="https://botindex.dev" className="hover:text-zinc-300 underline">BotIndex</a> intelligence</p>
-            <div className="flex items-center gap-4">
+        <footer className="border-t border-zinc-800/80 py-8 mt-16">
+          <div className="mx-auto flex w-full max-w-6xl flex-col md:flex-row items-center justify-between gap-4 px-4 text-sm text-zinc-500 sm:px-6 lg:px-8">
+            <p>© 2026 BaseRadar · Powered by <a href="https://botindex.dev" className="hover:text-zinc-300 transition">BotIndex</a> intelligence</p>
+            <div className="flex items-center gap-6">
               {NAV_LINKS.map((l) => (
-                <Link key={l.href} href={l.href} className="hover:text-zinc-300 transition-colors">
+                <Link key={l.href} href={l.href} className="hover:text-zinc-300 transition">
                   {l.label}
                 </Link>
               ))}
