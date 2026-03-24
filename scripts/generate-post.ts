@@ -17,13 +17,19 @@ const KING_BACKEND =
 const CONTENT_DIR = path.join(process.cwd(), "src/content/blog");
 
 function slugify(text: string): string {
-  return text
+  const base = text
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
-    .slice(0, 60)
     .replace(/-$/, "");
+
+  if (base.length <= 60) return base;
+
+  // Truncate at last word boundary before 60 chars
+  const truncated = base.slice(0, 60);
+  const lastDash = truncated.lastIndexOf("-");
+  return lastDash > 30 ? truncated.slice(0, lastDash) : truncated;
 }
 
 async function fetchLiveData() {
@@ -162,6 +168,19 @@ async function main() {
 
   if (!fs.existsSync(CONTENT_DIR)) {
     fs.mkdirSync(CONTENT_DIR, { recursive: true });
+  }
+
+  // Duplicate guard — if slug already exists, append date suffix
+  if (fs.existsSync(outPath)) {
+    const dateSuffix = new Date().toISOString().slice(0, 10);
+    const dedupedSlug = `${slug}-${dateSuffix}`;
+    const dedupedPath = path.join(CONTENT_DIR, `${dedupedSlug}.md`);
+    console.warn(`[generate] Slug collision: ${filename} already exists — writing to ${dedupedSlug}.md`);
+    fs.writeFileSync(dedupedPath, markdown, "utf-8");
+    console.log(`\n✓ Post saved: src/content/blog/${dedupedSlug}.md`);
+    console.log(`  Preview: https://baseradar.app/blog/${dedupedSlug}`);
+    console.log(`\nTo publish:\n  git add src/content/blog/${dedupedSlug}.md && git commit -m "content: ${title}" && git push`);
+    return;
   }
 
   fs.writeFileSync(outPath, markdown, "utf-8");
