@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate-post": "ts-node --project scripts/tsconfig.json scripts/generate-post.ts",
+    "discover-topics": "ts-node --project scripts/tsconfig.json scripts/discover-topics.ts"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
@@ -18,6 +20,7 @@
     "remark-html": "^16.0.1"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -25,6 +28,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
