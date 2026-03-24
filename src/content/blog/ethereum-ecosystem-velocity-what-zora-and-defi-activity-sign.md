@@ -1,0 +1,1 @@
+Blog post written to `src/content/blog/ethereum-ecosystem-velocity-zora-defi-signals.md`. It uses all the live data points (Base 21.2 avg, Solana 20.0, zero SURGE/RISING, all 8 top movers with exact scores and volumes), includes internal links across 5 sections, 4 FAQ pairs, and frames the consolidation period as actionable intelligence rather than a dead zone.
