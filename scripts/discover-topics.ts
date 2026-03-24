@@ -17,6 +17,7 @@ const QUEUE_INDEX_FILE = path.join(__dirname, ".queue-index");
 const DISCOVERED_FILE = path.join(__dirname, ".discovered-topics.json");
 const FIRECRAWL_API_KEY = process.env.FIRECRAWL_API_KEY;
 const KING_BACKEND = process.env.KING_BACKEND_URL || "https://king-backend.fly.dev";
+const SEARXNG_URL = process.env.SEARXNG_URL || "http://localhost:8888";
 
 // ─── Data Sources ──────────────────────────────────────────────────────────
 
@@ -122,6 +123,35 @@ async function fetchXTrending(): Promise<string[]> {
     .map((l) => `[X/Twitter] ${l.trim()}`);
 }
 
+async function fetchSearXNGTrending(): Promise<string[]> {
+  const queries = [
+    "crypto token momentum 2026",
+    "solana base ethereum ecosystem",
+    "defi on-chain velocity signals",
+    "crypto market trends this week",
+    "token launch velocity base solana",
+  ];
+  const titles: string[] = [];
+
+  for (const q of queries) {
+    try {
+      const url = `${SEARXNG_URL}/search?q=${encodeURIComponent(q)}&format=json&categories=general&time_range=week`;
+      const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
+      if (!res.ok) continue;
+      const data = await res.json();
+      for (const result of (data?.results ?? []).slice(0, 6)) {
+        if (result.title && result.title.length > 15) {
+          titles.push(`[SearXNG] ${result.title}`);
+        }
+      }
+    } catch {
+      // skip failed query
+    }
+  }
+
+  return [...new Set(titles)]; // dedupe
+}
+
 async function fetchParagraphTrending(): Promise<string[]> {
   const content = await firecrawlScrape("https://paragraph.xyz/explore?tag=crypto");
   if (!content) return [];
@@ -221,16 +251,17 @@ function injectTopicsIntoQueue(topics: string[]) {
 async function main() {
   console.log("[discover] Fetching trending topics from all sources...");
 
-  const [reddit, hn, devto, xTrends, paragraph] = await Promise.all([
+  const [reddit, hn, devto, xTrends, paragraph, searxng] = await Promise.all([
     fetchRedditTrending(),
     fetchHNTrending(),
     fetchDevToTrending(),
     fetchXTrending(),
     fetchParagraphTrending(),
+    fetchSearXNGTrending(),
   ]);
 
-  const all = [...reddit, ...hn, ...devto, ...xTrends, ...paragraph];
-  console.log(`[discover] Collected ${all.length} raw signals (Reddit: ${reddit.length}, HN: ${hn.length}, Dev.to: ${devto.length}, X: ${xTrends.length}, Paragraph: ${paragraph.length})`);
+  const all = [...reddit, ...hn, ...devto, ...xTrends, ...paragraph, ...searxng];
+  console.log(`[discover] Collected ${all.length} raw signals (Reddit: ${reddit.length}, HN: ${hn.length}, Dev.to: ${devto.length}, X: ${xTrends.length}, Paragraph: ${paragraph.length}, SearXNG: ${searxng.length})`);
 
   if (all.length === 0) {
     console.log("[discover] No signals collected — skipping topic injection");
