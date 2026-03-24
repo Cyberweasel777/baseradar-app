@@ -1,0 +1,1 @@
+Blog post written to `src/content/blog/mcp-payment-rails-velocity-signals-agent-economy.md`. It uses all the live BotIndex data (Base 22.2 avg, Solana 20.0, SHX and BASE IS FOR EVERYONE at 40, CUBBON BLR at 35 with $11.9K volume, etc.), includes internal links in every section, has 4 FAQ pairs, and frames the MCP agent economy narrative through velocity-leads-price analysis.
