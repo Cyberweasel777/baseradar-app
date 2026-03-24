@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getEcosystemRankings } from "@/lib/api";
 import { SignalBadge } from "@/components/SignalBadge";
+import { SentinelCTA } from "@/components/cta/SentinelCTA";
 
 export const revalidate = 300;
 
@@ -67,6 +68,8 @@ export default async function RankingsPage() {
           </table>
         </div>
       )}
+
+      <SentinelCTA />
 
       <div className="flex items-center gap-6 text-sm text-zinc-500">
         <Link href="/ecosystems" className="hover:text-zinc-300 transition-colors">← All Ecosystems</Link>

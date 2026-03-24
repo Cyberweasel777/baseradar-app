@@ -4,6 +4,7 @@ import { getDailyMovers } from "@/lib/api";
 import { SignalBadge } from "@/components/SignalBadge";
 import { ChainBadge } from "@/components/ChainBadge";
 import { EmailCapture } from "@/components/EmailCapture";
+import { SentinelCTA } from "@/components/cta/SentinelCTA";
 
 export const revalidate = 60;
 
@@ -137,6 +138,8 @@ export default async function TodayPage() {
           </p>
         </>
       )}
+
+      <SentinelCTA />
 
       <EmailCapture label="Get this report delivered daily. Free." />
     </div>

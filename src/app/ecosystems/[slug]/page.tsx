@@ -5,6 +5,7 @@ import { getEcosystemSummary } from "@/lib/api";
 import { SignalBadge } from "@/components/SignalBadge";
 import { ChainBadge } from "@/components/ChainBadge";
 import { EmailCapture } from "@/components/EmailCapture";
+import { SentinelCTA } from "@/components/cta/SentinelCTA";
 
 export const revalidate = 300;
 
@@ -134,6 +135,8 @@ export default async function EcosystemPage({ params }: { params: Promise<{ slug
           </div>
         </section>
       )}
+
+      <SentinelCTA />
 
       <EmailCapture label={`Get daily ${eco.name} intelligence. Free.`} />
     </div>

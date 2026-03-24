@@ -1,0 +1,33 @@
+# BaseRadar — Crypto Ecosystem Velocity Intelligence
+
+BaseRadar is a free public intelligence layer that tracks token momentum across crypto ecosystems.
+It scores every token on a velocity scale (0-100) based on volume acceleration and on-chain activity.
+
+## What BaseRadar measures
+- Token velocity score (0-100): rate of change in volume and holder activity vs. own historical baseline
+- Signal classification: SURGE (70+), RISING (50-70), STABLE (30-50), FADING (<30)
+- Ecosystem momentum: average velocity across all tracked tokens per chain
+
+## Ecosystems covered
+- Solana: DeFi, NFTs, memecoins — highest token velocity in crypto
+- Base: Coinbase L2 — fastest-growing developer ecosystem
+- Ethereum: Settlement layer — Zora, DeFi, creator activity
+
+## Key pages
+/today — today's top movers ranked by velocity score
+/rankings — ecosystem velocity rankings (Solana vs Base vs Ethereum)
+/ecosystems — all ecosystem intelligence
+/ecosystems/solana — Solana ecosystem detail
+/ecosystems/base — Base ecosystem detail
+/ecosystems/ethereum — Ethereum ecosystem detail
+/methodology — how velocity scores are calculated
+
+## Data sources
+DexScreener, Zora, PumpFun — refreshed every 5 minutes
+
+## Free tier
+All data is free and public. No account required.
+
+## Premium intelligence
+BotIndex Pro: convergence signals, prediction accuracy track record, full historical data, API access.
+https://botindex.dev
