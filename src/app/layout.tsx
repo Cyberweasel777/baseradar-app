@@ -26,6 +26,7 @@ const NAV_LINKS = [
   { href: "/today", label: "Today" },
   { href: "/ecosystems", label: "Ecosystems" },
   { href: "/rankings", label: "Rankings" },
+  { href: "/blog", label: "Research" },
   { href: "/methodology", label: "Methodology" },
 ];
 
