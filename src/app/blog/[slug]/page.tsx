@@ -4,6 +4,10 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { MarkdownContent } from "@/components/MarkdownContent";
 
+// Allow ISR for slugs not in the initial static params (new posts added after build)
+export const dynamicParams = true;
+export const revalidate = 300;
+
 export async function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
 }
