@@ -160,6 +160,19 @@ async function main() {
     if (altStart !== -1) {
       markdown = markdown.slice(altStart + 1).trim();
     } else {
+      // Claude may have written the file directly — check if it exists on disk
+      // by scanning the output for a filename reference
+      const fileMatch = markdown.match(/src\/content\/blog\/([\w-]+\.md)/);
+      if (fileMatch) {
+        const writtenPath = path.join(process.cwd(), "src/content/blog", fileMatch[1]);
+        if (fs.existsSync(writtenPath) && fs.statSync(writtenPath).size > 1000) {
+          const slug = fileMatch[1].replace(".md", "");
+          console.log(`\n✓ Post saved by Claude directly: src/content/blog/${fileMatch[1]}`);
+          console.log(`  Preview: https://baseradar.app/blog/${slug}`);
+          console.log(`\nTo publish:\n  git add src/content/blog/${fileMatch[1]} && git commit -m "content: ${slug}" && git push`);
+          return;
+        }
+      }
       throw new Error(`Invalid output: missing frontmatter. Content starts with: ${markdown.slice(0, 100)}`);
     }
   }
