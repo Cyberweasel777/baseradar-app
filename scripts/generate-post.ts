@@ -141,12 +141,7 @@ async function main() {
 
   let markdown: string;
   try {
-    markdown = execSync(
-      `claude --print --permission-mode bypassPermissions "$(cat ${tmpPrompt})"`,
-      { maxBuffer: 1024 * 1024 * 10, encoding: "utf-8" }
-    ) as string;
-  } catch (e: any) {
-    // Fallback: pass via stdin
+    // Use stdin — avoids shell escaping and stdout contamination from arg passing
     markdown = execSync(`claude --print --permission-mode bypassPermissions`, {
       input: prompt,
       maxBuffer: 1024 * 1024 * 10,
