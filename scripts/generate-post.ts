@@ -159,6 +159,21 @@ async function main() {
   // Strip any accidental code fences claude might add
   markdown = markdown.replace(/^```(?:markdown)?\n?/m, "").replace(/\n?```$/m, "").trim();
 
+  // Guard: must start with --- frontmatter, not Claude's prose explanation
+  if (!markdown.startsWith("---")) {
+    const altStart = markdown.indexOf("\n---");
+    if (altStart !== -1) {
+      markdown = markdown.slice(altStart + 1).trim();
+    } else {
+      throw new Error(`Invalid output: missing frontmatter. Content starts with: ${markdown.slice(0, 100)}`);
+    }
+  }
+
+  // Guard: minimum size — real posts are >2000 chars, stubs are <600
+  if (markdown.length < 1000) {
+    throw new Error(`Content too short (${markdown.length} chars) — likely a stub or error message. Aborting.`);
+  }
+
   // Extract slug from generated title, fall back to topic
   const titleMatch = markdown.match(/^title:\s*["'](.+?)["']/m);
   const title = titleMatch ? titleMatch[1] : topic;
