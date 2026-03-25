@@ -7,6 +7,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  verification: {
+    google: "1RgCHzc4yCxsvPaiBogqRwpWZY_69Xbqzk2AbBsGZfw",
+  },
   title: "BaseRadar — Crypto Ecosystem Intelligence",
   description: "Track which crypto ecosystems and tokens are gaining momentum — before the market prices it in. Free daily intelligence from DexScreener, Zora, and PumpFun.",
   alternates: {
