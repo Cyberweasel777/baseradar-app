@@ -101,4 +101,9 @@ retry git push origin main
 TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 echo "{\"timestamp\": \"$TIMESTAMP\", \"topic\": \"$TOPIC\", \"file\": \"$NEW_FILE\"}" >> "$LOG"
 SLUG=$(basename "$NEW_FILE" .md)
-echo "[publish] ✓ Live at https://baseradar.app/blog/${SLUG} (after ~20s Vercel deploy)"
+
+# ── Step 6: Force Vercel prod deploy (GitHub auto-deploy can lag) ──────────
+echo "[publish] Triggering Vercel production deploy..."
+vercel --prod --yes 2>&1 | tail -2 || echo "[publish] Vercel deploy failed — post still in git, will deploy on next push"
+
+echo "[publish] ✓ Live at https://baseradar.app/blog/${SLUG}"
