@@ -8,6 +8,14 @@ export const revalidate = 300;
 export const metadata: Metadata = {
   title: "Crypto Ecosystem Intelligence — Rankings | BaseRadar",
   description: "Which crypto ecosystems are actually growing? BaseRadar ranks chains by token velocity and developer activity. Updated daily.",
+  openGraph: {
+    title: "Crypto Ecosystem Intelligence — Rankings | BaseRadar",
+    description: "Which crypto ecosystems are actually growing? Ranked by token velocity and developer activity, not price.",
+    url: "https://baseradar.app/ecosystems",
+    siteName: "BaseRadar",
+    type: "website",
+  },
+  alternates: { canonical: "https://baseradar.app/ecosystems" },
 };
 
 export default async function EcosystemsPage() {

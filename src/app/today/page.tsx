@@ -12,13 +12,23 @@ export async function generateMetadata(): Promise<Metadata> {
   const data = await getDailyMovers().catch(() => null);
   const top = data?.gainers?.[0];
   const date = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+  const title = top
+    ? `${top.symbol} leads today's movers — ${date} | BaseRadar`
+    : `Today's Crypto Ecosystem Movers — ${date} | BaseRadar`;
+  const description = top
+    ? `${top.symbol} is today's top ecosystem mover with a velocity score of ${top.velocityScore} (${top.signal}). Daily intelligence from BaseRadar.`
+    : "Today's top crypto ecosystem movers ranked by velocity score. Updated every 5 minutes.";
   return {
-    title: top
-      ? `${top.symbol} leads today's movers — ${date} | BaseRadar`
-      : `Today's Crypto Ecosystem Movers — ${date} | BaseRadar`,
-    description: top
-      ? `${top.symbol} is today's top ecosystem mover with a velocity score of ${top.velocityScore} (${top.signal}). Daily intelligence from BaseRadar.`
-      : "Today's top crypto ecosystem movers ranked by velocity score. Updated every 5 minutes.",
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: "https://baseradar.app/today",
+      siteName: "BaseRadar",
+      type: "website",
+    },
+    alternates: { canonical: "https://baseradar.app/today" },
   };
 }
 

@@ -9,6 +9,14 @@ export const revalidate = 300;
 export const metadata: Metadata = {
   title: "Crypto Ecosystem Velocity Rankings | BaseRadar",
   description: "All crypto ecosystems ranked by token velocity score. Which chains have the most momentum right now? Updated daily by BaseRadar.",
+  openGraph: {
+    title: "Crypto Ecosystem Velocity Rankings | BaseRadar",
+    description: "All crypto ecosystems ranked by token velocity score. Which chains have the most momentum right now?",
+    url: "https://baseradar.app/rankings",
+    siteName: "BaseRadar",
+    type: "website",
+  },
+  alternates: { canonical: "https://baseradar.app/rankings" },
 };
 
 export default async function RankingsPage() {

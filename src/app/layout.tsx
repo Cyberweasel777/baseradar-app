@@ -56,6 +56,98 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-0SCHX3MTRZ');
           `}
         </Script>
+        {/* JSON-LD: WebSite + Organization + SearchAction */}
+        <Script
+          id="jsonld-website"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://baseradar.app/#website",
+                  "url": "https://baseradar.app",
+                  "name": "BaseRadar",
+                  "description": "Track which crypto ecosystems and tokens are gaining momentum before the market prices it in. Free daily intelligence from DexScreener, Zora, and PumpFun.",
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": "https://baseradar.app/rankings?q={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                  }
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://baseradar.app/#organization",
+                  "name": "BaseRadar",
+                  "url": "https://baseradar.app",
+                  "description": "BaseRadar is a crypto ecosystem intelligence platform that tracks token velocity and momentum across Base, Solana, and Ethereum.",
+                  "sameAs": [
+                    "https://botindex.dev"
+                  ]
+                }
+              ]
+            })
+          }}
+        />
+        {/* JSON-LD: FAQPage — How It Works */}
+        <Script
+          id="jsonld-faq"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What is BaseRadar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "BaseRadar is a crypto ecosystem intelligence platform that continuously tracks token velocity and momentum across Base, Solana, and Ethereum using data from DexScreener, Zora, and PumpFun."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How does BaseRadar score tokens?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Every token receives a velocity score from 0 to 100 based on how fast activity is accelerating relative to its own baseline. Velocity leads price — it measures volume acceleration, holder growth, and ecosystem activity in real time."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How often is BaseRadar data updated?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "BaseRadar updates token velocity scores every 60 seconds using live data from DexScreener, Zora, and PumpFun across Solana, Base, and Ethereum."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is BaseRadar free to use?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. BaseRadar provides free daily ecosystem intelligence, token velocity rankings, and momentum signals. Advanced intelligence is available through BotIndex."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What data sources does BaseRadar use?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "BaseRadar aggregates data from DexScreener, Zora, and PumpFun to track cross-chain token velocity across Solana, Base, and Ethereum ecosystems."
+                  }
+                }
+              ]
+            })
+          }}
+        />
       </head>
       <body className={`${inter.className} min-h-screen bg-[#0a0a0a] text-zinc-100 antialiased`}>
         {/* Nav */}
