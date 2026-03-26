@@ -4,6 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "How BaseRadar Scores Crypto Ecosystems | Methodology",
   description: "How does BaseRadar calculate ecosystem momentum scores? We score token velocity, volume acceleration, holder growth, and ecosystem activity — not price.",
+  openGraph: {
+    title: "How BaseRadar Scores Crypto Ecosystems | Methodology",
+    description: "How BaseRadar calculates ecosystem momentum — token velocity, volume acceleration, holder growth, and ecosystem activity. Not price.",
+    url: "https://baseradar.app/methodology",
+    siteName: "BaseRadar",
+    type: "website",
+  },
+  alternates: { canonical: "https://baseradar.app/methodology" },
 };
 
 const SIGNAL_TIERS = [

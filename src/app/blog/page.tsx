@@ -5,6 +5,14 @@ import { getAllPosts } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "Crypto Ecosystem Intelligence Reports | BaseRadar",
   description: "Research, analysis, and intelligence on crypto ecosystem momentum, token velocity, and on-chain signals. Free from BaseRadar.",
+  openGraph: {
+    title: "Crypto Ecosystem Intelligence Reports | BaseRadar",
+    description: "Research and intelligence on crypto ecosystem momentum, token velocity, and on-chain signals.",
+    url: "https://baseradar.app/blog",
+    siteName: "BaseRadar",
+    type: "website",
+  },
+  alternates: { canonical: "https://baseradar.app/blog" },
 };
 
 export default function BlogPage() {

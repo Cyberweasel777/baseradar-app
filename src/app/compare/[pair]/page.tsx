@@ -15,6 +15,14 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
   return {
     title: `${a} vs ${b} Ecosystem Intelligence | BaseRadar`,
     description: `Compare ${a} and ${b} ecosystem velocity, token momentum, and signal activity. Powered by BaseRadar.`,
+    openGraph: {
+      title: `${a} vs ${b} Ecosystem Intelligence | BaseRadar`,
+      description: `Compare ${a} and ${b} ecosystem velocity, token momentum, and signal activity.`,
+      url: `https://baseradar.app/compare/${pair}`,
+      siteName: "BaseRadar",
+      type: "website",
+    },
+    alternates: { canonical: `https://baseradar.app/compare/${pair}` },
   };
 }
 
