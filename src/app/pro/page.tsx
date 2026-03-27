@@ -2,19 +2,55 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "BotIndex Pro — Advanced Velocity Signals | BaseRadar",
+  title: "BotIndex Pro — Institutional-Grade Crypto Intelligence | BaseRadar",
   description:
-    "Convergence alerts, unlimited real-time signals, full historical velocity data, and API access. Built for traders who move before the market.",
+    "Convergence signals, predictive analytics, and API access. Institutional-grade crypto intelligence for serious traders. Track 10,000+ tokens across Solana, Base, and Ethereum.",
   openGraph: {
-    title: "BotIndex Pro — Advanced Velocity Signals",
+    title: "BotIndex Pro — Institutional-Grade Crypto Intelligence",
     description:
-      "The intelligence layer under BaseRadar. Convergence alerts, prediction accuracy tracking, and API access for velocity-driven traders.",
+      "Multi-indicator convergence detection, ML-powered trajectory forecasting, and full API access. Built for traders who move before the market.",
     url: "https://baseradar.app/pro",
   },
   alternates: {
     canonical: "https://baseradar.app/pro",
   },
 };
+
+const TOOLKIT = [
+  {
+    icon: "◈",
+    title: "Convergence Signals",
+    desc: "Multi-indicator alignment detection across velocity, social density, and liquidity shifts. Know when all signals point the same direction — before the crowd does.",
+  },
+  {
+    icon: "⬡",
+    title: "Predictive Analytics",
+    desc: "ML-powered token trajectory forecasting. See where velocity trends are heading before they show up in price. Based on 12+ months of signal resolution data.",
+  },
+  {
+    icon: "⌗",
+    title: "Custom Alerts & API Access",
+    desc: "Set threshold-based alerts for any token or ecosystem. Full REST + WebSocket API for building your own tools on top of BotIndex data.",
+  },
+];
+
+const STEPS = [
+  {
+    num: "01",
+    title: "Sign Up",
+    desc: "Create your BotIndex Pro account. Linked directly to your BaseRadar profile — no separate login.",
+  },
+  {
+    num: "02",
+    title: "Connect Your Watchlist",
+    desc: "Pin the tokens and ecosystems you care about. Pro tracks them at the signal level, not just price.",
+  },
+  {
+    num: "03",
+    title: "Get Real-Time Signals",
+    desc: "Convergence alerts, SURGE notifications, and velocity shifts delivered the moment they're detected.",
+  },
+];
 
 const FREE_FEATURES = [
   "Live ecosystem scores (Base, Solana, + more)",
@@ -26,55 +62,50 @@ const FREE_FEATURES = [
 ];
 
 const PRO_FEATURES = [
-  {
-    title: "Convergence Alerts",
-    desc: "Get notified the moment on-chain velocity and social momentum align on the same token. The highest-confidence signal pattern we track.",
-  },
-  {
-    title: "Unlimited Real-Time Alerts",
-    desc: "Set thresholds by score, signal tier, ecosystem, or volume. Alerts fire within seconds of a signal upgrade — not hours.",
-  },
-  {
-    title: "Prediction Accuracy Track Record",
-    desc: "Every SURGE and RISING signal is logged. See how each call resolved over 7, 14, and 30 days. No cherry-picking.",
-  },
-  {
-    title: "Full Historical Velocity Data",
-    desc: "Query velocity scores, signal transitions, and volume data going back 12+ months. Backtest patterns before you trade them.",
-  },
-  {
-    title: "API Access",
-    desc: "Pull live and historical velocity data into your own tools, bots, or dashboards. REST + WebSocket endpoints.",
-  },
-  {
-    title: "Multi-Ecosystem Coverage",
-    desc: "Base, Solana, and additional ecosystems added on a rolling basis. One subscription, the full picture.",
-  },
+  "Everything in BaseRadar Free",
+  "Convergence signal alerts (highest-confidence pattern)",
+  "ML-powered predictive trajectory scoring",
+  "Custom threshold alerts — any token, any ecosystem",
+  "Full historical velocity data (12+ months)",
+  "REST + WebSocket API access",
+  "Prediction accuracy track record dashboard",
+  "Multi-ecosystem coverage (Solana, Base, Ethereum)",
+  "Priority signal delivery — seconds, not hours",
+];
+
+const STATS = [
+  { value: "10,000+", label: "tokens tracked across Solana, Base, and Ethereum" },
+  { value: "5 min", label: "signal refresh cycle — not hourly, not daily" },
+  { value: "72 hrs", label: "avg. lead time — SURGE signals before major moves" },
+  { value: "59.8%", label: "SURGE signal accuracy over 338 tracked calls" },
 ];
 
 export default function ProPage() {
   return (
-    <div className="py-12 space-y-20">
-      {/* Hero */}
+    <div className="py-12 space-y-24">
+
+      {/* ── Hero ── */}
       <section className="text-center space-y-6 max-w-3xl mx-auto">
-        <div className="inline-block rounded-full bg-cyan-500/10 border border-cyan-500/30 px-4 py-1.5 text-xs font-semibold text-cyan-400 tracking-wide uppercase">
+        <div className="inline-block rounded-full bg-cyan-500/10 border border-cyan-500/30 px-4 py-1.5 text-xs font-semibold text-cyan-400 tracking-widest uppercase">
           BotIndex Pro
         </div>
-        <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-          BaseRadar shows you the signal.
+        <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight">
+          Welcome to BotIndex Pro
           <br />
-          <span className="text-cyan-300">Pro puts you ahead of it.</span>
+          <span className="text-cyan-300">Institutional-grade crypto intelligence</span>
+          <br />
+          <span className="text-zinc-400 text-3xl sm:text-4xl font-medium">for serious traders.</span>
         </h1>
         <p className="text-lg text-zinc-400 max-w-xl mx-auto">
-          Convergence alerts, real-time notifications, full historical data, and API access — for
-          traders who act on velocity before the market prices it in.
+          BaseRadar shows you the signal. Pro puts you ahead of it — with convergence detection,
+          predictive analytics, and full API access before the market prices it in.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
           <a
             href="https://botindex.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-black transition hover:bg-zinc-200"
+            className="inline-flex items-center justify-center rounded-xl bg-cyan-400 px-8 py-4 text-base font-semibold text-black transition hover:bg-cyan-300"
           >
             Get BotIndex Pro →
           </a>
@@ -87,111 +118,187 @@ export default function ProPage() {
         </div>
       </section>
 
-      {/* Free vs Pro */}
-      <section className="grid md:grid-cols-2 gap-6">
-        {/* Free */}
-        <div className="rounded-2xl border border-zinc-700 bg-zinc-900/60 p-8 space-y-5">
-          <div>
-            <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wide">BaseRadar Free</p>
-            <p className="mt-1 text-2xl font-bold text-white">$0 / forever</p>
-          </div>
-          <ul className="space-y-3">
-            {FREE_FEATURES.map((f) => (
-              <li key={f} className="flex items-start gap-3 text-sm text-zinc-400">
-                <span className="mt-0.5 text-emerald-400 shrink-0">✓</span>
-                {f}
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/today"
-            className="inline-block text-sm text-cyan-400 hover:text-cyan-300 transition"
+      {/* ── Stats Bar ── */}
+      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {STATS.map((s) => (
+          <div
+            key={s.value}
+            className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 text-center space-y-1"
           >
-            See today&apos;s free signals →
-          </Link>
-        </div>
+            <p className="text-3xl font-bold text-cyan-300">{s.value}</p>
+            <p className="text-xs text-zinc-500 leading-snug">{s.label}</p>
+          </div>
+        ))}
+      </section>
 
-        {/* Pro */}
-        <div className="rounded-2xl border border-cyan-500/40 bg-gradient-to-br from-cyan-500/10 to-blue-500/5 p-8 space-y-5">
-          <div>
-            <p className="text-xs font-semibold text-cyan-400 uppercase tracking-wide">BotIndex Pro</p>
-            <p className="mt-1 text-2xl font-bold text-white">
-              Advanced signals + API
-            </p>
-          </div>
-          <ul className="space-y-3">
-            {PRO_FEATURES.map((f) => (
-              <li key={f.title} className="flex items-start gap-3 text-sm">
-                <span className="mt-0.5 text-cyan-400 shrink-0">◆</span>
-                <span>
-                  <span className="text-white font-medium">{f.title}</span>
-                  <span className="text-zinc-400"> — {f.desc}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
-          <a
-            href="https://botindex.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-full rounded-xl bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-zinc-200"
-          >
-            Get BotIndex Pro →
-          </a>
+      {/* ── The BotIndex Pro Toolkit ── */}
+      <section className="space-y-8">
+        <div className="text-center space-y-2">
+          <p className="text-xs font-semibold text-cyan-400 tracking-widest uppercase">The Toolkit</p>
+          <h2 className="text-3xl font-bold">BotIndex Pro at a glance</h2>
+          <p className="text-zinc-400 max-w-lg mx-auto">
+            Three core capabilities that separate signal-driven traders from the noise.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {TOOLKIT.map((t) => (
+            <div
+              key={t.title}
+              className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-8 space-y-4 hover:border-cyan-500/40 transition-colors"
+            >
+              <div className="text-3xl text-cyan-400">{t.icon}</div>
+              <h3 className="text-lg font-semibold text-white">{t.title}</h3>
+              <p className="text-sm text-zinc-400 leading-relaxed">{t.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* How convergence works */}
-      <section className="space-y-6 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-semibold text-cyan-300">What is a convergence signal?</h2>
-        <p className="text-zinc-400">
-          BaseRadar tracks on-chain velocity and social momentum as separate feeds. Most of the time
-          they diverge — on-chain moves without social, or social spikes without on-chain follow-through.
-        </p>
-        <p className="text-zinc-400">
-          A convergence signal fires when both feeds align on the same token within a narrow time window.
-          Historically, convergence precedes the biggest single-session moves by hours. It&apos;s the
-          highest-confidence pattern in the velocity dataset.
-        </p>
-        <p className="text-zinc-400">
-          BotIndex Pro alerts you the moment convergence is detected — before the signal shows up in
-          general rankings. That time gap is the edge.
-        </p>
-        <Link href="/methodology" className="text-sm text-cyan-400 hover:text-cyan-300 transition">
+      {/* ── How It Works ── */}
+      <section className="space-y-8">
+        <div className="text-center space-y-2">
+          <p className="text-xs font-semibold text-cyan-400 tracking-widest uppercase">Process</p>
+          <h2 className="text-3xl font-bold">How it works</h2>
+          <p className="text-zinc-400">Three steps from signup to edge.</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {STEPS.map((step, i) => (
+            <div key={step.num} className="relative rounded-2xl border border-zinc-800 bg-zinc-900/60 p-8 space-y-3">
+              <p className="text-4xl font-bold text-zinc-700 font-mono">{step.num}</p>
+              <h3 className="text-lg font-semibold text-white">{step.title}</h3>
+              <p className="text-sm text-zinc-400 leading-relaxed">{step.desc}</p>
+              {i < STEPS.length - 1 && (
+                <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 text-zinc-700 text-xl z-10">
+                  →
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Pricing ── */}
+      <section className="space-y-8">
+        <div className="text-center space-y-2">
+          <p className="text-xs font-semibold text-cyan-400 tracking-widest uppercase">Pricing</p>
+          <h2 className="text-3xl font-bold">Simple, transparent pricing</h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+
+          {/* Free tier */}
+          <div className="rounded-2xl border border-zinc-700 bg-zinc-900/60 p-8 space-y-6">
+            <div>
+              <p className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">BaseRadar Free</p>
+              <p className="mt-2 text-4xl font-bold text-white">$0</p>
+              <p className="text-zinc-500 text-sm">forever, no card required</p>
+            </div>
+            <ul className="space-y-3">
+              {FREE_FEATURES.map((f) => (
+                <li key={f} className="flex items-start gap-3 text-sm text-zinc-400">
+                  <span className="mt-0.5 text-emerald-400 shrink-0">✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/today"
+              className="inline-flex w-full items-center justify-center rounded-xl border border-zinc-700 px-6 py-3 text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white"
+            >
+              Start free →
+            </Link>
+          </div>
+
+          {/* Pro tier */}
+          <div className="rounded-2xl border border-cyan-500/50 bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-transparent p-8 space-y-6 relative overflow-hidden">
+            <div className="absolute top-0 right-0 rounded-bl-2xl bg-cyan-400 px-4 py-1.5 text-xs font-bold text-black tracking-wide uppercase">
+              Most Popular
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-cyan-400 uppercase tracking-widest">BotIndex Pro</p>
+              <div className="mt-2 flex items-baseline gap-2">
+                <p className="text-4xl font-bold text-white">$49</p>
+                <p className="text-zinc-400 text-sm">/ month</p>
+              </div>
+              <p className="text-zinc-500 text-sm mt-1">or $399/yr — save 32%</p>
+            </div>
+            <ul className="space-y-3">
+              {PRO_FEATURES.map((f) => (
+                <li key={f} className="flex items-start gap-3 text-sm">
+                  <span className="mt-0.5 text-cyan-400 shrink-0">◆</span>
+                  <span className="text-zinc-300">{f}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="https://botindex.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-xl bg-cyan-400 px-6 py-3 text-sm font-semibold text-black transition hover:bg-cyan-300"
+            >
+              Get BotIndex Pro →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Social Proof / Data Points ── */}
+      <section className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-8 md:p-12 space-y-6">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold text-cyan-400 tracking-widest uppercase">Track Record</p>
+          <h2 className="text-2xl font-bold text-white">The data speaks for itself</h2>
+        </div>
+        <div className="grid sm:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <p className="text-zinc-300 text-sm font-medium">Tracking 10,000+ tokens</p>
+            <p className="text-zinc-500 text-sm">
+              Across Solana, Base, and Ethereum — every token with on-chain velocity data gets scored
+              and ranked on a rolling 5-minute cycle.
+            </p>
+          </div>
+          <div className="space-y-2">
+            <p className="text-zinc-300 text-sm font-medium">Updated every 5 minutes</p>
+            <p className="text-zinc-500 text-sm">
+              Not daily snapshots. Not hourly. Signal data refreshes every 5 minutes so your alerts
+              fire when it matters, not after the move already happened.
+            </p>
+          </div>
+          <div className="space-y-2">
+            <p className="text-zinc-300 text-sm font-medium">72-hour average lead time on SURGE signals</p>
+            <p className="text-zinc-500 text-sm">
+              Historically, SURGE signals have identified momentum 72 hours before the broadest market
+              awareness. That gap is the edge.
+            </p>
+          </div>
+          <div className="space-y-2">
+            <p className="text-zinc-300 text-sm font-medium">Auditable, not just claimed</p>
+            <p className="text-zinc-500 text-sm">
+              Every signal is logged with a timestamp and resolution is tracked at 7, 14, and 30 days.
+              Pro gives you access to the full log — not a cherry-picked highlight reel.
+            </p>
+          </div>
+        </div>
+        <Link href="/methodology" className="inline-block text-sm text-cyan-400 hover:text-cyan-300 transition">
           Read the full velocity methodology →
         </Link>
       </section>
 
-      {/* Social proof / track record anchor */}
-      <section className="rounded-2xl border border-zinc-700 bg-zinc-900/60 p-8 space-y-4">
-        <h2 className="text-xl font-semibold text-white">Transparent track record</h2>
-        <p className="text-zinc-400 text-sm">
-          Every SURGE and RISING signal generated by BotIndex is logged with a timestamp. Resolution
-          is tracked at 7, 14, and 30 days. The track record is part of your Pro dashboard — not a
-          marketing claim, an auditable log.
-        </p>
-        <p className="text-zinc-400 text-sm">
-          If the signals don&apos;t perform, the data shows it. That&apos;s the accountability model.
-        </p>
-      </section>
-
-      {/* CTA */}
-      <section className="text-center space-y-6">
-        <h2 className="text-3xl font-semibold">
+      {/* ── Final CTA ── */}
+      <section className="text-center space-y-6 max-w-2xl mx-auto py-4">
+        <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
           BaseRadar is always free.
           <br />
           <span className="text-cyan-300">Pro is for when free isn&apos;t enough.</span>
         </h2>
-        <p className="text-zinc-400 max-w-lg mx-auto">
-          Start with the free signals. When you&apos;re ready to trade on convergence alerts and
-          historical data, Pro is one step away.
+        <p className="text-zinc-400">
+          Start with the free signals. When you&apos;re ready to trade on convergence alerts,
+          predictive trajectories, and historical data — Pro is one step away.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
           <a
             href="https://botindex.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 text-base font-semibold text-black transition hover:bg-zinc-200"
+            className="inline-flex items-center justify-center rounded-xl bg-cyan-400 px-8 py-4 text-base font-semibold text-black transition hover:bg-cyan-300"
           >
             Get BotIndex Pro →
           </a>
@@ -203,6 +310,7 @@ export default function ProPage() {
           </Link>
         </div>
       </section>
+
     </div>
   );
 }
