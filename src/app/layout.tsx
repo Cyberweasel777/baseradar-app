@@ -38,6 +38,7 @@ const NAV_LINKS = [
   { href: "/rankings", label: "Rankings" },
   { href: "/blog", label: "Research" },
   { href: "/methodology", label: "Methodology" },
+  { href: "/pro", label: "Pro" },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
