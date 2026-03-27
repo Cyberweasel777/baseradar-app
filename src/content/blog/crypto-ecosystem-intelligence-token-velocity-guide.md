@@ -1,8 +1,9 @@
 ---
 title: "Crypto Ecosystem Intelligence: 5 Ways Token Velocity Powers Base and Solana Analytics"
 description: "Unlock crypto ecosystem intelligence with token velocity and on-chain signals. Track Base and Solana momentum, volume surges, social trends, and liquidity shifts in real time."
-date: "2026-03-26"
-tags: ["crypto", "token-velocity", "base", "solana", "ethereum", "on-chain-analytics", "defi", "baseradar"]
+date: 2026-03-26
+author: Andrew Glaz
+tags: [crypto, token-velocity, base, solana, ethereum, on-chain-analytics, defi, baseradar]
 ---
 
 # Crypto Ecosystem Intelligence: 5 Ways Token Velocity Powers Base and Solana Analytics
